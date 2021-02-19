@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Chip8 from './Chip8';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
