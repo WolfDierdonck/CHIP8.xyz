@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import './App.css';
-import { useCanvas } from './components/canvas';
+import { useCanvas } from './components/canvas.js';
 import * as chip8 from './Chip8.js';
-import * as emuCustom from './components/emucustom';
-import EmuCustom from './components/emucustom';
-import EmuInfo from './components/emuinfo';
-import useForceUpdate from './components/emuinfo';
+import * as emuCustom from './components/emucustom.js';
+import EmuCustom from './components/emucustom.js';
+import EmuInfo from './components/emuinfo.js';
+import useForceUpdate from './components/emuinfo.js';
 
 
 function App() {
