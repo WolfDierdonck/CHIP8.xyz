@@ -19,9 +19,12 @@ export let color = "FFFFFF";
 export let gameName = "breakout";
 
 const options = [
-    { value: 'breakout', label: 'Breakout', color: "red" },
+    { value: 'breakout', label: 'Breakout'},
     { value: 'hidden', label: 'Hidden' },
-    { value: 'hilo', label: 'High-Low' }
+    { value: 'hilo', label: 'High-Low' },
+    { value: 'space', label: 'Space Invaders'},
+    { value: 'tetris', label: 'Tetris'},
+    { value: 'tictactoe', label: 'Tic-Tac-Toe'}
   ]
 
 const selectStyle = {
@@ -111,6 +114,10 @@ export default function EmuInfo() {
             <Button onClick={() => running = false}className="controlButton" size="large" style={{backgroundColor: "#FFFFFF"}} variant="contained">Pause</Button>  
             <Button onClick={() => running = true}className="controlButton" size="large" style={{backgroundColor: "#FFFFFF"}} variant="contained">Resume</Button>
             <Button onClick={() => restart()}className="controlButton" size="large" style={{backgroundColor: "#FFFFFF"}} variant="contained">Restart</Button>
+            <p style={{textAlign: "center"}}>
+                Created by <br/>
+                Wolf Van Dierdonck
+            </p>
           </div>
         </div>
         </ThemeProvider>
