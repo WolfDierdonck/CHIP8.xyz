@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import Select from 'react-select';
 import * as chip8 from '../Chip8.js';
 
-export const freqStep = 100; //min is 25
+export const freqStep = 100;
 export let frequency = 300;
 export let iterateCount = Math.floor(frequency/freqStep);
 
