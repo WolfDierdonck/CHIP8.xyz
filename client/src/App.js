@@ -3,28 +3,28 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { useCanvas } from './components/canvas';
 import * as chip8 from './Chip8.js';
+import * as emuCustom from './components/emucustom';
+import EmuCustom from './components/emucustom';
+import EmuInfo from './components/emuinfo';
+import useForceUpdate from './components/emuinfo';
+
 
 function App() {
   const [ canvasRef, canvasWidth, canvasHeight, sizeMultiplier ] = useCanvas();
 
-  const freqStep = 100; //min is 25
-  let frequency = 100;
-  let iterateCount = Math.floor(frequency/freqStep);
-
-  let running = true;
   let keys = [];
 
   async function emulation() {
     chip8.initialize();
-    await chip8.loadGame("hilo");
+    await chip8.loadGame(emuCustom.gameName);
   }
 
   function singleCycle() {
-    if(!running)
+    if(!emuCustom.running)
       return;
 
     let i = 0;
-    while (i < iterateCount) {
+    while (i < emuCustom.iterateCount) {
     
       chip8.setKeys(keys);
 
@@ -33,8 +33,6 @@ function App() {
 
         if (chip8.drawFlag) {
           chip8.removeDrawFlag();
-          console.log("chip 8 gfx below");
-          console.log(chip8.getGFX().reduce((a, b) => a + b, 0));
 
           let canvasObj = canvasRef.current;
           let ctx = canvasObj.getContext('2d');
@@ -42,10 +40,10 @@ function App() {
           ctx.fillStyle = "black";
           ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "#" + emuCustom.color;
           for (let y = 0; y < 32; y++) {
             for (let x = 0; x < 64; x++) {
-              if (chip8.getGFX()[y*64+x]) {   
+              if (chip8.gfx[y*64+x]) {   
                 ctx.fillRect(x*sizeMultiplier, y*sizeMultiplier, sizeMultiplier, sizeMultiplier);
               }
             }
@@ -70,10 +68,8 @@ function App() {
   false);
 
   useEffect(() => {
-    if (running) {
-      const interval = setInterval(singleCycle, 1000/freqStep);
+      const interval = setInterval(singleCycle, 1000/emuCustom.freqStep);
       return () => clearInterval(interval);
-    }
   }, []);
 
   emulation();
@@ -82,9 +78,8 @@ function App() {
   return (
     <div className="App">
       <div className="mainFlex">
-        <div 
-        className="test"
-        height={canvasHeight}></div>
+        
+        <EmuInfo/>
 
         <canvas 
           className="chip8Canvas"
@@ -94,7 +89,7 @@ function App() {
           />
       </div>
 
-    <div className="customization"></div>
+      <EmuCustom/>
 
     </div>
   );

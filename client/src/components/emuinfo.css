@@ -1,0 +1,34 @@
+.innerDetails {
+    word-wrap: break-word;
+    line-height: 1.1;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    font-family: code;
+    color: white;
+    width:100%;
+    height: 100%;    
+}
+
+.outerDetails {
+    margin: 10px;
+    width:100%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: aquamarine;
+    background-color:#172943;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.miscInfo {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.infoField {
+    margin-top: 0px;
+    margin-right: 50px;
+}
