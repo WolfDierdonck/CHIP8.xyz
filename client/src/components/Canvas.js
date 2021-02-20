@@ -1,20 +1,11 @@
-import React from "react";
-import * as PropTypes from "prop-types";
+import React, { useState, useEffect, useRef } from 'react';
 
-class Canvas extends React.Component {
-    constructor() {
-        super()
-        this.canvas = React.createRef()
-    }
-    componentDidMount() {
-        const ctx = this.canvas.current.getContext('2d')
-        this.props.draw(ctx);
-    }
-    render() {
-        return <canvas ref={this.canvas} />;        
-    }
+export const sizeMultiplier = 13;
+export const canvasWidth = 64*sizeMultiplier;
+export const canvasHeight = 32*sizeMultiplier;
+
+export function useCanvas() {
+    const canvasRef = useRef(null);
+
+    return [ canvasRef, canvasWidth, canvasHeight, sizeMultiplier ];
 }
-Canvas.propTypes = {
-  draw: PropTypes.func.isRequired
-};
-export default Canvas

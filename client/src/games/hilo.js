@@ -1,0 +1,2 @@
+const data = "6c 09 cd 0f 8c d5 4f 00 12 00 89 d0 6c 09 cd 0f 8c d5 4f 00 12 0c 8a d0 6e 00 a2 aa 7e 01 fe 33 f2 65 6b 30 6c 10 68 0f f1 29 db c5 7b 05 f2 29 db c5 48 00 12 54 66 0a f1 0a 81 65 3f 00 12 36 71 0a 66 0a f2 0a 82 65 3f 00 12 42 72 0a 6b 10 68 00 12 28 81 95 31 00 12 72 82 a5 32 00 12 86 6b 20 65 18 f9 29 db c5 7b 05 fa 29 db c5 fc 18 12 70 65 f0 81 52 31 00 12 8e a2 9f 6b 10 6c 18 db c5 f6 0a 12 92 65 f0 82 52 42 00 12 7a a2 a4 12 7c 4e 0a 12 9a 00 e0 12 1a db c5 12 60 01 97 92 f2 92 97 8f 89 89 89 ef d4";
+export default data;

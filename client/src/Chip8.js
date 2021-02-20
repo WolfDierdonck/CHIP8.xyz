@@ -36,12 +36,16 @@ function uint16 (n) {
 }
 
 
-export var gfx = new Uint8Array(64*32);
+var gfx = new Uint8Array(64*32);
 export var drawFlag;
 export var awaitPress;
 
 export function removeDrawFlag() {
     drawFlag = false;
+}
+
+export function getGFX() {
+    return gfx;
 }
 
 export function initialize() {
@@ -69,8 +73,6 @@ export async function loadGame(game) {
     let module = await import('./games/' + game);
 
     var output = module.default.split(" ").map(item => parseInt(item, 16));
-
-    console.log(output);
 
     for (var i = 0; i < output.length; i++) {
         memory[i+512] = output[i];
