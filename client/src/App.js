@@ -7,6 +7,7 @@ import * as emuCustom from './components/emucustom.js';
 import EmuCustom from './components/emucustom.js';
 import EmuInfo from './components/emuinfo.js';
 import useForceUpdate from './components/emuinfo.js';
+import Explanation from './components/explanation.js';
 
 
 function App() {
@@ -90,6 +91,8 @@ function App() {
       </div>
 
       <EmuCustom/>
+
+      <Explanation/>
 
     </div>
   );
